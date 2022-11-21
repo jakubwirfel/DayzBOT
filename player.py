@@ -25,15 +25,7 @@ class Player:
             sleep(600)
 
     def restart(self) -> None:
-        sleep(13)
-        while True:
-            Logger.info("-------------------RESTART CHECK")
-            self.instructions.check_relog()
-            Logger.info("-------------------RESTART CHECK FINISH WAITING 600S")
-            sleep(600)
-
-    def restart(self) -> None:
-        sleep(13)
+        sleep(27)
         while True:
             Logger.info("-------------------RESTART CHECK")
             self.instructions.check_relog()
