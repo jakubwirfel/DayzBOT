@@ -1,3 +1,4 @@
+from helpers.sound.sound_recognize_helper import SoundRecognizeHelper
 from logger import Logger
 
 
@@ -25,3 +26,10 @@ class Decider:
     def __find_closest_restart(current_time: str, restarts_times: list) -> int:
         output, index = min((i, idx) for idx, i in enumerate(restarts_times) if i > int(current_time[0:2:1]))
         return output
+
+    @staticmethod
+    def verify_if_sound_occured(sound_path: str) -> bool:
+        sound_counter = SoundRecognizeHelper.recognize(sound_path)
+        if sound_counter >= 5:
+            return True
+        return False
