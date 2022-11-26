@@ -31,3 +31,11 @@ class Player:
             self.instructions.check_relog()
             Logger.info("-------------------RESTART CHECK FINISH WAITING 600S")
             sleep(600)
+
+    def sound(self) -> None:
+        sleep(2)
+        while True:
+            Logger.info("-------------------Sound CHECK")
+            self.instructions.check_sound()
+            Logger.info("-------------------Sound CHECK FINISH WAITING 300S")
+            sleep(60)

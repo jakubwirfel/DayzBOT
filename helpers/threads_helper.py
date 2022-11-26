@@ -8,6 +8,7 @@ class ThreadHelper:
         self.player = Player()
 
     def player_executor(self) -> None:
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            executor.submit(self.player.food_and_water)
-            executor.submit(self.player.restart)
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            # executor.submit(self.player.food_and_water)
+            # executor.submit(self.player.restart)
+            executor.submit(self.player.sound())
