@@ -26,7 +26,7 @@ class SoundRecognizeHelper:
         max_dB = max(data)
         Logger.info(f"Max Db: {max_dB}; Min dB: {min(data)}")
         for item in data:
-            if max_dB >= item >= max_dB - 1.5 and max_dB >= -30:
+            if max_dB >= item >= max_dB - 1.5 and max_dB >= -28:
                 counter += 1
         if counter == 1:
             return 0

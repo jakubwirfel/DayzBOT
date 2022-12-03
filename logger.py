@@ -2,6 +2,7 @@ import logging
 import os
 import sys
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any, Final
 
 
@@ -15,8 +16,11 @@ class LoggedStatuses:
 class Logger:
     LOG_FORMAT: Final[str] = '%(asctime)s %(levelname)s:\t%(message)s'
     DATE_FORMAT: Final[str] = "%Y/%m/%d %H:%M:%S"
-    LOG_NAME: Final[str] = "log"
-    LOG_PATH: Final[str] = f"E:\\Nauka Python Intermediate\\DayzBOT"
+    now = datetime.now()
+    current_time = now.strftime("%H_%M_%S")
+
+    LOG_NAME: Final[str] = f"log{current_time}.txt"
+    LOG_PATH: Final[str] = fr"C:\tmp\DayzBot"
     __instance = None
     statuses_called = LoggedStatuses()
 

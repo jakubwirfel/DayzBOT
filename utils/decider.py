@@ -6,9 +6,10 @@ class Decider:
     @staticmethod
     def verify_food_is_ok(food_colors: list) -> bool:
         for item in food_colors:
-            if 0xE9 <= int(item[6:8:1], 16) <= 0xFF:
-                return False
-        return True
+            r, g, b = item
+            if (r >= 220 and g >= 230 and b <= 100) or (r >= 230 and g <= 100 and b <= 100):
+                return True
+        return False
 
     @classmethod
     def check_time_to_restart(cls, current_time: str, restarts_times: list) -> bool:
@@ -33,3 +34,27 @@ class Decider:
         if sound_counter >= 5:
             return True
         return False
+
+    @staticmethod
+    def check_if_in_menu(menu_colors) -> bool:
+        checkers = []
+        if len(menu_colors) > 0:
+            for item in menu_colors:
+                r, g, b = item
+                if r >= 200 and g >= 230 and b >= 220:
+                    checkers.append(True)
+                else:
+                    checkers.append(False)
+        return all(checkers)
+
+    @staticmethod
+    def check_if_dead(dead_colors) -> bool:
+        checkers = []
+        if len(dead_colors) > 0:
+            for item in dead_colors:
+                r, g, b = item
+                if r <= 50 and g <= 50 and b <= 50:
+                    checkers.append(True)
+                else:
+                    checkers.append(False)
+        return all(checkers)

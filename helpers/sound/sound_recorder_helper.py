@@ -13,7 +13,7 @@ class SoundRecorderHelper:
         now = datetime.now()
         current_time = now.strftime("%H_%M_%S")
         file: str = f"recorded_sound{current_time}.wav"
-        path = fr'C:\tmp\DayzBot'
+        path = fr'C:\tmp\DayzBot\audio'
         file_path = f"{path}\{file}"
         self.filename = file_path
 
