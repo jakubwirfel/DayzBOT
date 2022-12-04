@@ -17,7 +17,6 @@ class Decider:
     @classmethod
     def check_time_to_restart(cls, current_time: str, restarts_times: list) -> bool:
         closest_restart = cls.__find_closest_restart(current_time, restarts_times)
-        print(closest_restart)
         if len(str(closest_restart)) == 1:
             closest_restart_minus_10: str = "0" + str(closest_restart - 1) + ":50"
             closest_restart_fixed = "0" + str(closest_restart) + ":00"
@@ -25,7 +24,6 @@ class Decider:
             closest_restart_minus_10: str = str(closest_restart - 1) + ":50"
             closest_restart_fixed = str(closest_restart) + ":00"
         current_time = current_time[0:5:1]
-        print(current_time, closest_restart_minus_10, closest_restart_fixed)
         if closest_restart_minus_10 <= current_time <= closest_restart_fixed:
             Logger.info("restart now")
             return True
