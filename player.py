@@ -6,10 +6,9 @@ from wrappers.instructions import Instructions
 
 
 class Player:
-    SERVER_RESTARTS = [3, 7, 11, 15, 19, 23]
 
     def __init__(self):
-        self.instructions = Instructions(Player.SERVER_RESTARTS)
+        self.instructions = Instructions()
 
     def other_check(self) -> None:
         sleep(5)

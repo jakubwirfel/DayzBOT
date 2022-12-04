@@ -9,8 +9,8 @@ from utils.info_getters import InfoGetters
 
 
 class Instructions:
-    def __init__(self, server_restarts: list):
-        self.RESTART_TIME = server_restarts
+    def __init__(self):
+        self.SERVER_RESTARTS = [3, 7, 11, 15, 19, 23]
 
     @staticmethod
     def check_food() -> None:
@@ -21,8 +21,9 @@ class Instructions:
 
     def check_relog(self) -> None:
         current_time = InfoGetters.get_current_time()
-        if Decider.check_time_to_restart(current_time, self.RESTART_TIME):
+        if Decider.check_time_to_restart(current_time, self.SERVER_RESTARTS):
             RestartHelper.counter_and_restart()
+            Instructions.check_if_in_menu()
 
     @staticmethod
     def check_sound() -> None:

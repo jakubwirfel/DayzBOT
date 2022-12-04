@@ -3,10 +3,10 @@ from time import sleep
 from helpers.key_mouse_helper import KeyMouseHelper
 from logger import Logger
 from utils.info_getters import InfoGetters
-from wrappers.instructions import Instructions
 
 
 class RestartHelper:
+
     @staticmethod
     def counter_and_restart() -> None:
         current_time = InfoGetters.get_current_time()
@@ -14,7 +14,6 @@ class RestartHelper:
         if 57 <= int(current_time) <= 59 or current_time == "00":
             Logger.info("fast exit")
             KeyMouseHelper.trigger_restart()
-            Instructions.check_if_in_menu()
         else:
             time_to_restart = (57 - int(current_time)) * 60
             Logger.info(f"time to restart: {time_to_restart}")
@@ -23,4 +22,3 @@ class RestartHelper:
                 time_to_restart -= 1
             Logger.info("restart triggered")
             KeyMouseHelper.trigger_restart()
-            Instructions.check_if_in_menu()
