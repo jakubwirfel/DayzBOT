@@ -5,11 +5,14 @@ from logger import Logger
 class Decider:
     @staticmethod
     def verify_food_is_ok(food_colors: list) -> bool:
+        check_list = []
         for item in food_colors:
             r, g, b = item
-            if (r >= 220 and g >= 230 and b <= 100) or (r >= 230 and g <= 100 and b <= 100):
-                return True
-        return False
+            if r >= 160 and g >= 160 and b >= 160:
+                check_list.append(True)
+            else:
+                check_list.append(False)
+        return not all(check_list)
 
     @classmethod
     def check_time_to_restart(cls, current_time: str, restarts_times: list) -> bool:

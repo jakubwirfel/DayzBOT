@@ -16,8 +16,8 @@ class InfoGetters:
         screenshot.save(path)
         im = Image.open(fr"{FileUtils().checkers_path}\check_food.jpg")
         pix = im.load()
-        color_food = pix[1665, 995]
-        color_water = pix[1625, 995]
+        color_food = pix[1665, 1014]
+        color_water = pix[1625, 1014]
         Logger.info(f"Food: {color_food}")
         Logger.info(f"Water {color_water}")
         return [color_food, color_water]

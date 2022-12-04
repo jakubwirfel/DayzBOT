@@ -11,6 +11,8 @@ from utils.info_getters import InfoGetters
 class Instructions:
     def __init__(self):
         self.SERVER_RESTARTS = [3, 7, 11, 15, 19, 23]
+        self.__sound_counter = 0
+        self.__sound_check_iteration = 0
 
     @staticmethod
     def check_food() -> None:
@@ -25,11 +27,16 @@ class Instructions:
             RestartHelper.counter_and_restart()
             Instructions.check_if_in_menu()
 
-    @staticmethod
-    def check_sound() -> None:
+    def check_sound(self) -> None:
+        self.__sound_check_iteration += 1
         recorded_sound_path = InfoGetters.return_recorded_sound()
         if Decider.verify_if_sound_occured(recorded_sound_path):
-            DiscordHelper().send_screen_massage(recorded_sound_path, "aaaaa kurwa RAJDUJĄ nas!")
+            self.__sound_counter += 1
+            if self.__sound_counter == 2:
+                DiscordHelper().send_screen_massage(recorded_sound_path, "aaaaa kurwa RAJDUJĄ nas!")
+        if self.__sound_check_iteration == 2:
+            self.__sound_check_iteration = 0
+            self.__sound_counter = 0
 
     @staticmethod
     def check_if_in_menu() -> None:

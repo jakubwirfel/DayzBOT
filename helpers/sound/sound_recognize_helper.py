@@ -1,9 +1,5 @@
-import librosa
 import numpy as np
 import soundfile as sfile
-from librosa import display
-from matplotlib import pyplot as plt
-from scipy.signal import find_peaks
 
 from logger import Logger
 
@@ -28,8 +24,6 @@ class SoundRecognizeHelper:
         for item in data:
             if max_dB >= item >= max_dB - 1.5 and max_dB >= -28:
                 counter += 1
-        if counter == 1:
-            return 0
 
         Logger.info(f"Find {counter} sounds")
 

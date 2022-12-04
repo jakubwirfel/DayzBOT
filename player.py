@@ -30,10 +30,11 @@ class Player:
         while True:
             Logger.info("-------------------FOOD CHECK")
             self.instructions.check_food()
-            Logger.info("-------------------FOOD CHECK FINISH WAITING 600S")
+            Logger.info("-------------------FOOD CHECK FINISH WAITING 60S")
             Logger.info("-------------------Sound CHECK")
             self.instructions.check_sound()
             Logger.info("-------------------Sound and food CHECK FINISH WAITING 60S")
             FileUtils().remove_audio_files_when_3()
             FileUtils().delete_files()
             sleep(60)
+
