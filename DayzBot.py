@@ -9,11 +9,21 @@ menu_options = {
 
 
 def print_menu():
+    print("===========REQUIREMENTS===========\n"
+          "- user resolution: 1920 x 1080\n"
+          "- sound card with loopback\n"
+          "- OS: Windows 10 / 11\n"
+          "- No game filters\n"
+          "- No earplugs\n"
+          "- Max total volume in game\n"
+          "- Max effects volume in game\n"
+          "- 50% windows volume\n"
+          "==================================\n")
     for key in menu_options.keys():
         print(key, '--', menu_options[key])
 
 
-def option1():
+def anti_ride():
     FileUtils()
     ThreadHelper().player_executor()
 
@@ -35,7 +45,7 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             exit()
         if option == 1:
-            option1()
+            anti_ride()
         elif option == 2:
             option2()
         elif option == 3:
