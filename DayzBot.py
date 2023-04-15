@@ -1,15 +1,18 @@
 from helpers.threads_helper import ThreadHelper
+from player import Player
 from utils.file_utils import FileUtils
+#ToDo Godziny restartów do json
+#ToDo link to discord w json
+
 
 menu_options = {
     1: 'Anti Ride',
-    2: 'Riding 10min',
-    3: 'Option 3',
+    2: 'Ride Mele',
 }
 
 
 def print_menu():
-    print("===========REQUIREMENTS===========\n"
+    print("\n===========REQUIREMENTS===========\n"
           "- user resolution: 1920 x 1080\n"
           "- sound card with loopback\n"
           "- OS: Windows 10 / 11\n"
@@ -28,8 +31,8 @@ def anti_ride():
     ThreadHelper().player_executor()
 
 
-def option2():
-    print('Handle option \'Option 2\'')
+def ride_mele():
+    Player().player_ride_mele()
 
 
 def option3():
@@ -47,8 +50,6 @@ if __name__ == "__main__":
         if option == 1:
             anti_ride()
         elif option == 2:
-            option2()
-        elif option == 3:
-            option3()
+            ride_mele()
         else:
-            print('Invalid option. Please enter a number between 1 and 3.')
+            print('Invalid option. Please enter a number 1.')

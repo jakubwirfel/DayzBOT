@@ -1,5 +1,5 @@
 from time import sleep
-
+from helpers.key_mouse_helper import KeyMouseHelper
 from logger import Logger
 from utils.file_utils import FileUtils
 from wrappers.instructions import Instructions
@@ -38,3 +38,11 @@ class Player:
             FileUtils().delete_files()
             sleep(60)
 
+    def player_ride_mele(self) -> None:
+        sleep(5)
+        Logger.info("---------STARTING MELE RIDE")
+        try:
+            KeyMouseHelper.ride_mele()
+        except KeyboardInterrupt:
+            Logger.info("---------MELE RIDE FINISHED BY USER")
+            KeyMouseHelper.finished_mele_ride()

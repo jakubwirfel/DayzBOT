@@ -66,3 +66,13 @@ class KeyMouseHelper:
             sleep(0.2)
             pydirectinput.mouseUp(button="left")
             sleep(0.5)
+
+    @staticmethod
+    def ride_mele() -> None:
+        pydirectinput.mouseDown(button='left')
+        sleep(1800)
+        pydirectinput.mouseUp(button="left")
+
+    @staticmethod
+    def finished_mele_ride() -> None:
+        pydirectinput.mouseUp(button="left")
