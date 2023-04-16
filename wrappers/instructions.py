@@ -4,13 +4,14 @@ from helpers.discord_helper import DiscordHelper
 from helpers.key_mouse_helper import KeyMouseHelper
 from helpers.restart_helper import RestartHelper
 from logger import Logger
+from utils.config import Config
 from utils.decider import Decider
 from utils.info_getters import InfoGetters
 
 
 class Instructions:
     def __init__(self):
-        self.SERVER_RESTARTS = [3, 7, 11, 15, 19, 23]
+        self.SERVER_RESTARTS = list(Config.SERVER_RESTARTS)
         self.__sound_counter = 0
         self.__sound_check_iteration = 0
 

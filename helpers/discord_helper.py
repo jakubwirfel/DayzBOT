@@ -1,11 +1,12 @@
 from discord_webhook import DiscordWebhook
 
+from utils.config import Config
+
 
 class DiscordHelper:
-    def send_screen_massage(self, file: str, message: str) -> None:
-
-        webhook = DiscordWebhook(url='https://discord.com/api/webhooks/1047907736471486544/g6-B2xINdIdX7vvBHZfCs'
-                                     '-90tGuQQxplHO0cExPYShAq-HONMB94U4kE3RPIEjDvsnpn', username="Stróż Janusz")
+    @staticmethod
+    def send_screen_massage(file: str, message: str) -> None:
+        webhook = DiscordWebhook(url=Config.DISCORD_WEBHOOK, username="Stróż Janusz")
 
         # send two images
         with open(fr"{file}", "rb") as f:

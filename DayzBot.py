@@ -1,8 +1,8 @@
 from helpers.threads_helper import ThreadHelper
 from player import Player
 from utils.file_utils import FileUtils
-#ToDo Godziny restartów do json
-#ToDo link to discord w json
+
+# ToDo link to discord w json
 
 
 menu_options = {
@@ -12,6 +12,11 @@ menu_options = {
 
 
 def print_menu():
+    print("\n===========PREPARE===========\n"
+          "- Make sure that config.json in in main DayzBOT folder\n"
+          "- Please verify server restart in config.json\n"
+          "- Set LOGS_PATH in config.json\n"
+          "==================================")
     print("\n===========REQUIREMENTS===========\n"
           "- user resolution: 1920 x 1080\n"
           "- sound card with loopback\n"

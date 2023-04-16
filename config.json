@@ -1,0 +1,5 @@
+{
+  "LOGS_PATH": "C:\\tmp\\DayzBot",
+  "SERVER_RESTARTS": [4, 8, 12, 16, 20, 24],
+  "DISCORD_WEBHOOK": ""
+}

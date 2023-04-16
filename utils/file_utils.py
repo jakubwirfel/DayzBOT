@@ -1,14 +1,16 @@
 import os
+import shutil
 
 from logger import Logger
-import os, shutil
+from utils.config import Config
+
 
 class FileUtils:
     def __init__(self):
-        self.main_path = r'C:\tmp\DayzBot'
-        self.photo_path = r'C:\tmp\DayzBot\screenshot'
-        self.audio_path = r'C:\tmp\DayzBot\audio'
-        self.checkers_path = r'C:\tmp\DayzBot\checkers'
+        self.main_path = fr'{Config.LOGS_PATH}'
+        self.photo_path = fr'{self.main_path}\screenshot'
+        self.audio_path = fr'{self.main_path}\audio'
+        self.checkers_path = fr'{self.main_path}\checkers'
 
         self.create_data_folder(self.main_path)
         self.create_data_folder(self.audio_path)
@@ -39,3 +41,7 @@ class FileUtils:
                     shutil.rmtree(file_path)
             except Exception as e:
                 print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+    @staticmethod
+    def check_if_exist(path: str, file_name: str = None) -> bool:
+        return os.path.exists(os.path.join(path, file_name) if file_name else path)

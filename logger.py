@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Final
 
+from utils.config import Config
+
 
 @dataclass
 class LoggedStatuses:
@@ -20,7 +22,7 @@ class Logger:
     current_time = now.strftime("%H_%M_%S")
 
     LOG_NAME: Final[str] = f"log{current_time}.txt"
-    LOG_PATH: Final[str] = fr"C:\tmp\DayzBot"
+    LOG_PATH: Final[str] = Config.LOGS_PATH
     __instance = None
     statuses_called = LoggedStatuses()
 
