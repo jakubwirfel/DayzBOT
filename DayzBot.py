@@ -1,16 +1,18 @@
-import keyboard as keyboard
-
 from helpers.process_helper import ProcessHelper
 from helpers.threads_helper import ThreadHelper
 from logger import Logger
 from player import Player
 from utils.file_utils import FileUtils
 
-# ToDo link to discord w json
+# ToDo
+#  link to discord w json
+#  dodanie autoruna
+#  dodanie earplugs
 
 menu_options = {
     1: "Anti Ride",
     2: "Ride Mele",
+    "e": "Exit"
 }
 
 
@@ -45,6 +47,7 @@ def anti_ride():
 def ride_mele():
     Player().player_ride_mele()
 
+
 def option3():
     print('Handle option \'Option 3\'')
 
@@ -67,5 +70,8 @@ if __name__ == "__main__":
                 anti_ride()
             elif option == "2":
                 ride_mele()
+            elif any(["e", "E"]):
+                Logger.info("\nExiting...")
+                exit()
             else:
                 Logger.warning(f"Invalid option ({option}). Please enter a number 1 or 2")

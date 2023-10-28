@@ -1,7 +1,6 @@
 
 import time
 from concurrent.futures import ThreadPoolExecutor
-from threading import Event
 
 from logger import Logger
 from player import Player
